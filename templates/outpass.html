@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEC</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo 1.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/outpass.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo 1.png') }}" alt="College Logo">
+            <span style="font-size: 22px;"><b>Mailam Engineering College</b></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('visitor_page')}}">Visitors</a></li>
+                <li><a href="{{url_for('user_dashboard')}}">Transport</a></li>
+                <li><a href="{{url_for('outpass_page')}}">Outpass</a></li>
+                <li><a href="{{url_for('latecomers_page')}}">Latecomers</a></li>
+                <li><a href="{{url_for('logout')}}">LogOut</a></li>
+            </ul>
+        </nav>
+    </header><br>
+    <h2>Outpass Entry Logs</h2><br>
+
+    <div class="container">
+        <form id="outpassForm">
+            <div class="form-group">
+                <label class="label">Name:</label>
+                <input type="text" id="name" class="input" required>
+            </div>
+
+            <div class="form-group">
+                <label class="label">Department:</label>
+                <input type="text" id="department" class="input" placeholder="eg. IT-2Year or 1year" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="label">Hostel:</label>
+                <input type="radio" name="hostel" value="Yes" id="hostelYes"> <label for="hostelYes">Yes</label>
+                <input type="radio" name="hostel" value="No" id="hostelNo"> <label for="hostelNo">No</label>
+            </div>
+            
+            <!-- Room Number (Visible only if Hostel = Yes) -->
+            <div id="roomDetails" class="hidden">
+                <div class="form-group">
+                    <label class="label">Room Number:</label>
+                    <input type="text" class="input" id="room_number" placeholder="eg.301/G or 301/B">
+                </div>
+                <div class="form-group">
+                <label class="label">Hostel Type:</label>
+                <select id="hostel_type" name="hostel_type">
+                <option value="" disabled selected>Select Type</option>
+                <option value="Girls">Girls</option>
+                <option value="Boys">Boys</option>
+                </select>
+            </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="label">Out-Time:</label>
+                <input type="time" id="outtime" class="input">
+            </div>            
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/outpass.js') }}"></script>
+</body>
+</html>

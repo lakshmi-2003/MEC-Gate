@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/hostellers_view.css') }}">
+{% endblock %}
+{% block content %}
+<h1>Hostellers OutPass View</h1>
+<div class="container-box">
+    <div class="header">Hostellers outpass Overview</div>
+
+    <div class="outpass-counts">
+        <div class="count-box">
+            <h5>Total OutPass</h5><br>
+            <p>{{ total_outpass }}</p>
+        </div>
+        <div class="count-box">
+            <h5>Girls Hostel</h5><br>
+            <p>{{ girls_hostel }}</p>
+        </div>
+        <div class="count-box">
+            <h5>Boys Hostel</h5><br>
+            <p>{{ boys_hostel }}</p>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-box-table">
+    <form method="POST" class="date-picker">
+        <label><b>Select Date:</b></label>
+        <input type="date" name="selected_date" required>
+        <button type="submit" class="filter-btn">Filter</button>
+    </form>
+
+    {% if hostel %}
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Hostel</th>
+                <th>Room Number</th>
+                <th>Outtime</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hos in hostel %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ hos.name}}</td>
+                <td>{{ hos.department }}</td>
+                <td>{{ hos.hostel_type }}</td>
+                <td>{{ hos.room_number }}</td>
+                <td>{{ hos.outtime }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="no-entries">No entries found</div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEC</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo 1.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/visitors.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo 1.png') }}" alt="College Logo">
+            <span style="font-size: 22px;"><b>Mailam Engineering College</b></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('visitor_page')}}">Visitors</a></li>
+                <li><a href="{{url_for('user_dashboard')}}">Transport</a></li>
+                <li><a href="{{url_for('outpass_page')}}">Outpass</a></li>
+                <li><a href="{{url_for('latecomers_page')}}">Latecomers</a></li>
+                <li><a href="{{url_for('logout')}}">LogOut</a></li>
+            </ul>
+        </nav>
+    </header><br>
+    <h2>Visitors Entry Logs</h2><br>
+    <div class="container-wrapper">
+        <div class="container">
+            <form id="visitorForm">
+                <h2>Visitors Entry Logs</h2>
+                <div class="form-group">
+                    <label class="label">Name:</label>
+                    <input type="text" id="name" class="input" required>
+                </div>
+                <div class="form-group">
+                    <label class="label">Mobile No:</label>
+                    <input type="text" id="mobile" class="input" required>
+                </div>
+                <div class="form-group">
+                    <label class="label">Purpose:</label>
+                    <input type="text" id="purpose" class="input" required>
+                </div>
+                <div class="form-group">
+                    <label class="label">Vehicle:</label>
+                    <input type="radio" name="vehicle" value="Yes" id="vehicleYes">
+                    <label for="vehicleYes">Yes</label>
+                    <input type="radio" name="vehicle" value="No" id="vehicleNo">
+                    <label for="vehicleNo">No</label>
+                </div>
+                <div id="vehicleDetails" class="hidden">
+                    <div class="form-group">
+                        <label class="label">Vehicle Type:</label>
+                        <select id="vehicle_type">
+                            <option value="" disabled selected>Select Vehicle Type</option>
+                            <option>Two Wheeler</option>
+                            <option>Lorry</option>
+                            <option>Auto</option>
+                            <option>Car</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">Vehicle Number:</label>
+                        <input type="text" class="input" id="vehicle_number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="label">In-Time:</label>
+                    <input type="time" id="intime" class="input" required>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    
+        <div class="table-container">
+            <h2>Visitor Records</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Purpose</th>
+                        <th>In-Time</th>
+                        <th>Out-Time</th>
+                    </tr>
+                </thead>
+                <tbody id="visitorTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>    
+    <script src="{{ url_for('static', filename='js/visitors.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEC</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo 1.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/collegebus.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo 1.png') }}" alt="College Logo">
+            <span style="font-size: 22px;"><b>Mailam Engineering College</b></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('visitor_page')}}">Visitors</a></li>
+                <li><a href="{{url_for('user_dashboard')}}">Transport</a></li>
+                <li><a href="{{url_for('outpass_page')}}">Outpass</a></li>
+                <li><a href="{{url_for('latecomers_page')}}">Latecomers</a></li>
+                <li><a href="{{url_for('logout')}}">LogOut</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h2>College Bus Logs</h2>
+    <!--<div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by Bus Number" />
+        <span class="search-icon">🔍</span>
+    </div>!-->
+    <br>
+    <br>
+    <table id="busTable">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Bus Number</th>
+                <th>Route</th>
+                <th>Date</th>
+                <th>Intime</th>
+                <th>Outtime</th>
+            </tr>
+        </thead>
+        <tbody id="busLogs">
+            <!-- Bus logs will be populated here -->
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='js/collegebus.js') }}"></script>
+</body>
+</html>

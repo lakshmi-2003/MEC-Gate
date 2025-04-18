@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/visitors_view.css') }}">
+{% endblock %}
+{% block content %}
+<div class="vechile-container">
+    <h1>Visitors Views</h1>
+
+    <div class="date-picker-container">
+        <label for="datePicker">Select Date:</label>
+        <input type="date" id="datePicker">
+        <button id="fetchData">Fetch Records</button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>In-Time</th>
+                    <th>Out-Time</th>
+                </tr>
+            </thead>
+            <tbody id="visitorTable">
+                <tr>
+                    <td colspan="7" class="no-records">No records found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/visitors_view.js') }}"></script>
+{% endblock %}

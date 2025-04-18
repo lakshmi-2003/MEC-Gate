@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/college_bus_view.css') }}">
+{% endblock %}
+{% block content %}
+<h1>College Bus View</h1>
+<div class="college-bus-container">
+<div class="container-box">
+    <div class="header">College Bus Overview</div>
+
+    <div class="bus-counts">
+        <div class="count-box">
+            <h5>Total Bus</h5><br>
+            <p>{{ total_bus }}</p>
+        </div>
+        <div class="count-box">
+            <h5>In Station</h5><br>
+            <p>{{ in_station }}</p>
+        </div>
+        <div class="count-box">
+            <h5>Out Station</h5><br>
+            <p>{{ out_station }}</p>
+        </div>
+    </div>
+</div>
+<div class="container-box-add">
+    <div class="header">Actions</div>
+<div class="bus-actions">
+    <button onclick="showPopup('addBusPopup')">➕ Add Bus</button>
+    <button onclick="showPopup('removeBusPopup')">❌ Remove Bus</button>
+</div>
+</div>
+</div>
+<br>
+<div class="container-box-table">
+    <form method="POST" class="date-picker">
+        <label><b>Select Date:</b></label>
+        <input type="date" name="selected_date" required>
+        <button type="submit" class="filter-btn">Filter</button>
+    </form>
+
+    {% if buses %}
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Bus Number</th>
+                <th>Route</th>
+                <th>Intime</th>
+                <th>Outtime</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bus in buses %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ bus[1] }}</td>
+                <td>{{ bus[2] }}</td>
+                <td>{{ bus[3] }}</td>
+                <td>{{ bus[4] if bus[4] != '-' else "Not Recorded" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="no-entries">No entries found</div>
+    {% endif %}
+</div>
+<!-- Add Bus Popup -->
+<div id="addBusPopup" class="popup">
+    <div class="popup-content">
+        <h3>Add Bus</h3>
+        <label>Bus Number:</label>
+        <input type="text" id="bus_number">
+        <label>Route:</label>
+        <input type="text" id="bus_route">
+        <br><br>
+        <button onclick="addBus()" class="button-green">Submit</button>
+        <button onclick="closePopup('addBusPopup')" class="button-blue">Cancel</button>
+    </div>
+</div>
+
+<!-- Remove Bus Popup -->
+<div id="removeBusPopup" class="popup">
+    <div class="popup-content">
+        <h3>Remove Bus</h3>
+        <label>Bus Number:</label>
+        <input type="text" id="remove_bus_number">
+        <br><br>
+        <button onclick="removeBus()" class="button-green">Submit</button>
+        <button onclick="closePopup('removeBusPopup')" class="button-blue">Cancel</button>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/college_bus_view.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,110 @@
+body{
+    background-color: #f5e6b9;
+    margin: 0;
+    height: 80vh;
+}
+.header {
+    display: flex;
+    align-items: center;  /* Align items vertically */
+    justify-content: center; /* Center align horizontally */
+    gap: 10px; /* Space between logo and text */
+    margin-top: 20px;
+}
+
+#logo {
+    width: 50px;  /* Adjust width */
+    height: 50px; /* Adjust height */
+    object-fit: contain;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #5a189a;
+    margin: 0;
+}
+
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding:50px;
+        }
+        .container {
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 1000px;
+            width: 100%;
+            height: 400px;
+        }
+        .left-panel {
+            background: #ffcc80;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+        }
+        .left-panel img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .right-panel {
+            flex: 1;
+            padding: 40px;
+            text-align: center;
+        }
+        .right-panel h2 {
+            color: #5a189a;
+            margin-bottom: 20px;
+}
+/* Input container with icons */
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    background: #fff;
+    border: 1px solid #555353;
+    border-radius: 5px;
+    width: 320px;
+    margin-left: 50px;
+}
+
+.input-container i {
+    margin-right: 10px;
+    color: #5a189a;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+        button {
+            background: #ff595e;
+            color: white;
+            border: none;
+            padding: 10px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 60%;
+        }
+        button:hover {
+            background: #ff3f3f;
+        }
+p{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 30px;
+    margin-top: 0px;
+}
+
+input[type="text"], 
+input[type="password"] {
+    border: none; /* Removes the border */
+    outline: none; /* Removes the focus outline */
+    background: none; /* Removes any default background */
+    padding: 10px; /* Adds some spacing inside the field */
+    font-size: 14px; /* Adjusts font size */
+    width: 60%; /* Ensures it fills the container */
+}

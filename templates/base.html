@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEC</title>
+    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo 1.png') }}">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Admin">
+                <div class="profile-info">
+                    <h2>Welcome ADMIN!</h2>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                <li><a href="{{ url_for('dashboard') }}"><i class="bi bi-speedometer2"></i>  Dashboard</a></li>
+                <li><a href="{{url_for('college_bus_view')}}"><i class="bi bi-bus-front"></i>  College Bus</a></li>
+                <li><a href="{{url_for('vehicle_view')}}"><i class="bi bi-car-front"></i>  Vehicles</a></li>
+                <li><a href="{{url_for('visitor_view')}}"><i class="bi bi-people"></i>  Visitors</a></li>
+                <li><a href="{{url_for('hostellers_view')}}"><i class="bi bi-house-door"></i>  Hostellers</a></li>
+                <li><a href="{{url_for('outpass_view')}}"><i class="bi bi-box-arrow-up-right"></i>  Outpass</a></li>
+                <li><a href="{{url_for('latecomers_view')}}"><i class="bi bi-clock-history"></i>  Latecomers</a></li>
+                <li><a href="{{url_for('logout')}}"><i class="bi bi-box-arrow-right"></i>  LogOut</a></li>
+                </ul>
+            </nav>
+            </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+</div>
+<footer>
+    <p>© Department of MCA</p>
+</footer>
+{% block extra_js %}{% endblock %}
+</body>

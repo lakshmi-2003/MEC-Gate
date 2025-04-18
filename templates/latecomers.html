@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEC</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo 1.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/latecomers.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo 1.png') }}" alt="College Logo">
+            <span style="font-size: 22px;"><b>Mailam Engineering College</b></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('visitor_page')}}">Visitors</a></li>
+                <li><a href="{{url_for('user_dashboard')}}">Transport</a></li>
+                <li><a href="{{url_for('outpass_page')}}">Outpass</a></li>
+                <li><a href="{{url_for('latecomers_page')}}">Latecomers</a></li>
+                <li><a href="{{url_for('logout')}}">LogOut</a></li>
+            </ul>
+        </nav>
+    </header><br>
+    <h2>Latecomers Entry Logs</h2><br><br>
+    <div class="container">
+        <form id="latecomerForm">
+            <div class="form-group">
+                <label class="label">Name:</label>
+                <input type="text" id="name" class="input" required>
+            </div>
+            <div class="form-group">
+                <label class="label">Department:</label>
+                <input type="text" id="department" class="input" placeholder="eg. IT-2Year or 1year" required>
+            </div>
+            <div class="form-group">
+                <label class="label">In-Time:</label>
+                <input type="time" id="intime" class="input" required>
+            </div>
+            <div class="form-group">
+                <label class="label">Reason:</label>
+                <textarea id="reason" class="input" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/latecomers.js') }}"></script>
+</body>
+</html>

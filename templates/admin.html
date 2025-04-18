@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+{% block content %}
+<div class="dashboard-container">
+    <h1>Admin Dashboard Overview</h1>
+<br>
+    <div class="dashboard-grid">
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/collegebus.png') }}" alt="College Bus">
+            <p>College Bus</p><br>
+            <span class="count">{{ collegebus_count }}</span>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/vehicle.png') }}" alt="Vehicles">
+            <p>Vehicles</p><br>
+            <span class="count">{{ vehicles_count }}</span>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/visitors.png') }}" alt="Visitors">
+            <p>Visitors</p><br>
+            <span class="count">{{ visitors_count }}</span>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/hostel.png') }}" alt="Outpass">
+            <p>Hostellers OutPass</p><br>
+            <span class="count">{{ hostel_count }}</span>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/outpass.png') }}" alt="Outpass">
+            <p>Outpass</p><br>
+            <span class="count">{{ outpass_count }}</span>
+        </div>
+
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/latecomers.png') }}" alt="Latecomers">
+            <p>Latecomers</p><br>
+            <span class="count">{{ latecomers_count }}</span>
+        </div>
+    </div>
+</div>
+{% endblock %}
