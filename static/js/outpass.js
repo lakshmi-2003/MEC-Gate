@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             hostel: hostelInput ? hostelInput.value : "No",
             hostel_type: hostelInput && hostelInput.value === "Yes" ? document.getElementById("hostel_type").value : null,
             room_number: hostelInput && hostelInput.value === "Yes" ? document.getElementById("room_number").value : "",
+            reason: document.getElementById("reason").value,
             outtime: document.getElementById("outtime").value,
             date: new Date().toISOString().split("T")[0] // Store today's date
         };

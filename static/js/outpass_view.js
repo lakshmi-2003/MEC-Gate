@@ -18,6 +18,7 @@ document.getElementById("fetchData").addEventListener("click", function () {
                     <td>${index+1}</td>
                     <td>${row.name}</td>
                     <td>${row.department}</td>
+                    <td>${row.reason}</td>
                     <td>${row.outtime}</td>
                 `;
                 tableBody.appendChild(tr);

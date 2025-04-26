@@ -197,11 +197,11 @@ def submit_outpass():
     cursor = conn.cursor()
     
     cursor.execute('''
-        INSERT INTO Outpass (name, department, hostel, hostel_type, room_number, outtime, date)
-        VALUES (?, ?, ?, ?, ?, ?,?)
+        INSERT INTO Outpass (name, department, hostel, hostel_type, room_number, reason, outtime, date)
+        VALUES (?, ?, ?, ?, ?, ?,?, ?)
     ''', (
         data['name'], data['department'], data['hostel'], data['hostel_type'],
-        data['room_number'], data['outtime'], data['date']
+        data['room_number'], data['reason'], data['outtime'], data['date']
     ))
 
     conn.commit()

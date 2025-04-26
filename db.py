@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS Outpass (
     department TEXT NOT NULL,
     hostel TEXT NOT NULL,
     room_number TEXT,
+    reason TEXT NOT NULL,
     outtime TEXT NOT NULL,
     date TEXT NOT NULL DEFAULT (DATE('now'))
 );
